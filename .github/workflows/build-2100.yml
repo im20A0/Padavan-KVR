@@ -50,8 +50,7 @@ jobs:
         TNAME: "RM2100"
       run: |
         cd trunk
-        sudo ./clear_tree_simple
-        sudo ./build_firmware_modify $m 0
+        sudo ./build_firmware_modify RM2100 0
         sudo mv -f images/*.trx /opt/images/
         done
     - name: Upload binaries to release
