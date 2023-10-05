@@ -49,9 +49,6 @@ jobs:
       env:
         TNAME: "RM2100"
       run: |
-#        bash
-#        cwd=`pwd`
-#        CONFIG_TOOLCHAIN_DIR=$(cwd//\//\\\/)\\/toolchain-mipsel
         cd trunk
         for m in $TNAME;
         do
