@@ -20,6 +20,8 @@ jobs:
     container: ubuntu:18.04
 
     steps:
+    - name: Install sudo package
+        run: apt update && apt install sudo
     - name: nodejs
       run: |
         sudo apt-get remove nodejs
