@@ -49,16 +49,16 @@ jobs:
       env:
         TNAME: "RM2100"
       run: |
-        echo "cwd=`pwd`" > ba.sh
-        echo "CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel" >> ba.sh
-        echo "cd trunk" >> ba.sh
-        echo "for m in $TNAME;" >> ba.sh
-        echo "do" >> ba.sh
-        echo "if [ ! -f configs/templates/$m.config ] ; then" >> ba.sh
-        echo "echo "configs/templates/$m.config not found "" >> ba.sh
-        echo "exit 1" >> ba.sh
-        echo "fi" >> ba.sh
-        bash ba.sh
+        bash
+        cwd=`pwd`
+        CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel
+        cd trunk
+        for m in $TNAME;
+        do
+        if [ ! -f configs/templates/$m.config ] ; then
+        echo "configs/templates/$m.config not found "
+        exit 1
+        fi
         sudo ./clear_tree_simple
         sudo ./build_firmware_modify $m 0
         sudo mv -f images/*.trx /opt/images/
