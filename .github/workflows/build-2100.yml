@@ -1,4 +1,4 @@
-name: Build RM2100 R2100
+name: Build RM2100
 
 on: 
   release:
@@ -50,12 +50,6 @@ jobs:
         TNAME: "RM2100"
       run: |
         cd trunk
-        for m in $TNAME;
-        do
-        if [ ! -f configs/templates/$m.config ] ; then
-        echo "configs/templates/$m.config not found "
-        exit 1
-        fi
         sudo ./clear_tree_simple
         sudo ./build_firmware_modify $m 0
         sudo mv -f images/*.trx /opt/images/
