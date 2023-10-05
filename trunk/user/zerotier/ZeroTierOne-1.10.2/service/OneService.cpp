@@ -16,6 +16,7 @@
 #include <string.h>
 #include <stdint.h>
 
+#include <cmath>
 #include <string>
 #include <map>
 #include <vector>
