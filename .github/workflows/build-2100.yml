@@ -50,9 +50,9 @@ jobs:
         TNAME: "RM2100"
       run: |
         cd trunk
-        sudo ./build_firmware_modify RM2100 0
+        ./clear_tree
+        fakeroot ./build_firmware_modify RM2100
         sudo mv -f images/*.trx /opt/images/
-        done
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
       with:
