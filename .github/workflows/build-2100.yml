@@ -24,7 +24,8 @@ jobs:
       run: apt update && apt install sudo
     - name: nodejs
       run: |
-        sudo apt-get remove nodejs
+        sudo apt-get update
+        sudo apt-get -y install curl
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
         nvm install 16.15.1
     - name: Checkout
